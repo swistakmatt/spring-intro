@@ -1,9 +1,11 @@
 package com.example;
 
-import java.util.Random;
-import org.springframework.stereotype.Component;
 
-@Component("messageService2")
+import java.util.Random;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Bean;
+
+@Configuration
 public class RandomTextMessageService implements MessageService {
 
         private final String[] messages = {
@@ -20,7 +22,7 @@ public class RandomTextMessageService implements MessageService {
         };
 
 
-        @Override
+        @Bean
         public String getMessage() {
             Random random = new Random();
             int index = random.nextInt(messages.length);
